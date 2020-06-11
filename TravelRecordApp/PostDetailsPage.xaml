@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TravelRecordApp.PostDetailsPage">
+    <ContentPage.Content>
+            <StackLayout Margin="16,20,16,0">
+        <Entry x:Name="experienceEntry"
+               Text="I love to work here"/>
+        <Label x:Name="venueLabel"
+               Margin="0,30,0,0"
+               FontAttributes="Bold"
+               FontSize="22"
+               Text="Some fancy coworking"/>
+        <Label x:Name="categoryLabel"
+               Text="Coworking space"
+               TextColor="{StaticResource blueColor}"/>
+        <Label x:Name="addressLabel"
+               Text="1234 Main Street, New York, NY"
+               FontSize="15"/>
+        <Label x:Name="coordinatesLabel"
+               Text="123.12, 123.34"
+               FontSize="15"/>
+        <Label x:Name="distanceLabel"
+               Text="123 m"
+               FontSize="15"/>
+        <Button Text="Update"
+                Clicked="Update_Clicked"/>
+        <Button Text="Delete"
+                TextColor="Red"
+                Clicked="Delete_Clicked"/>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
