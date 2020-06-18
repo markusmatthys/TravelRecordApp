@@ -69,7 +69,7 @@ namespace TravelRecordApp
 
                 DisplayInMap(posts);
             }*/
-            var posts = await App.MobileService.GetTable<Post>().Where(p => p.UserId == App.user.Id).ToListAsync();
+            var posts = await Post.Read();
             DisplayInMap(posts);
 
         }
@@ -92,8 +92,12 @@ namespace TravelRecordApp
 
                     locationsMap.Pins.Add(pin);
                 }
-                catch (NullReferenceException nre) { }
-                catch (Exception ex) { }
+                catch (NullReferenceException nre) {
+                    DisplayAlert("Error", nre.ToString(), "Ok");
+                }
+                catch (Exception ex) {
+                    DisplayAlert("Error", ex.ToString(), "Ok");
+                }
             }
         }
 

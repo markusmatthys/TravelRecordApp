@@ -9,9 +9,16 @@ namespace TravelRecordApp
 {
     public partial class RegisterPage : ContentPage
     {
+        Users user;
+
         public RegisterPage()
+            
+
         {
             InitializeComponent();
+
+            user = new Users();
+            containerStackLayout.BindingContext = user;
         }
 
         private async void registerButton_Clicked(System.Object sender, System.EventArgs e)
@@ -19,13 +26,13 @@ namespace TravelRecordApp
             if (passwordEntry.Text == confirmPasswordEntry.Text)
             {
                 //We can register user
-                Users user = new Users()
-                {
-                    Email = emailEntry.Text,
-                    Password = passwordEntry.Text
-                };
+                //Users user = new Users()
+                //{
+                //    Email = emailEntry.Text,
+                //    Password = passwordEntry.Text
+                //};
 
-                await App.MobileService.GetTable<Users>().InsertAsync(user);
+                Users.Register(user);
             }
             else
             {

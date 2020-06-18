@@ -1,10 +1,6 @@
-﻿using System;
-using Microsoft.WindowsAzure.MobileServices;
-using TravelRecordApp.Model;
+﻿using Microsoft.WindowsAzure.MobileServices;
 using TravelRecordApp.Model;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
 namespace TravelRecordApp
 {
     public partial class App : Application
