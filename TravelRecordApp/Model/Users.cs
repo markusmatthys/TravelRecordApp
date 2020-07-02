@@ -47,6 +47,17 @@ namespace TravelRecordApp.Model
             }
         }
 
+        private string confirmPassword;
+
+        public string ConfirmPassword
+        {
+            get { return confirmPassword; }
+            set
+            {
+                confirmPassword = value;
+                OnPropertyChanged("ConfirmPassword");
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName) {
@@ -56,7 +67,7 @@ namespace TravelRecordApp.Model
             }
         }
 
-        public static async Task<bool> CheckLogin(string email, string password)
+        public static async Task<bool> Login(string email, string password)
         {
             bool isEmailEmpty = string.IsNullOrEmpty(email);
             bool isPasswordEmpty = string.IsNullOrEmpty(password);

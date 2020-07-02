@@ -22,7 +22,6 @@ namespace TravelRecordApp.ViewModel.Commands
             {
                 return false;
             }
-            
 
             if (string.IsNullOrEmpty(user.Email) || (string.IsNullOrEmpty(user.Password)))
             {

@@ -20,8 +20,7 @@ namespace TravelRecordApp.ViewModel
         }
 
 
-        public object MyProperty { get; set; }
-
+        public RegisterNavigationCommand RegisterNavigationCommand { get; set; }
 
         public LoginCommand LoginCommand { get; set; }
 
@@ -73,24 +72,12 @@ namespace TravelRecordApp.ViewModel
         {
             User = new Users();
             LoginCommand = new LoginCommand(this);
+            RegisterNavigationCommand = new RegisterNavigationCommand(this);
         }
 
-        public async System.Threading.Tasks.Task LoginAsync()
-        {
-            bool canLogin = await Users.CheckLogin(User.Email, User.Password);
-
-            if (canLogin)
-            {
-                await App.Current.MainPage.Navigation.PushAsync(new HomePage());
-            }
-            else
-            {
-                await App.Current.MainPage.DisplayAlert("Error", "Try again", "Ok");
-            }
-        }
         public async void Login()
         {
-            bool canLogin = await Users.CheckLogin(User.Email, User.Password);
+            bool canLogin = await Users.Login(User.Email, User.Password);
 
             if (canLogin)
             {
@@ -100,6 +87,11 @@ namespace TravelRecordApp.ViewModel
             {
                 await App.Current.MainPage.DisplayAlert("Error", "Try again", "Ok");
             }
+        }
+
+        public async void Navigate()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
     }
 }
